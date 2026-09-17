@@ -15,7 +15,7 @@ const clients = [
   {name:"NextGenRoboticX",url:"https://www.nextgenroboticx.com/",category:"Robotics education platform",thumb:"https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.nextgenroboticx.com%2F?w=1200"},
   {name:"NagarikSuraksha",url:"https://www.nagariksuraksha.com/",category:"Legal education platform",thumb:"https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.nagariksuraksha.com%2F?w=1200"},
   {name:"ConsultKaro",url:"https://www.consultkaro.org/",category:"Property consulting platform",thumb:"https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.consultkaro.org%2F?w=1200"},
-  {name:"Lekhapora Shekho",url:"https://lekhaporashekho.com/",category:"Coaching and learning platform",thumb:"https://s.wordpress.com/mshots/v1/https%3A%2F%2Flekhaporashekho.com%2F?w=1200"},
+  {name:"Tanmoy Sarkar",url:"https://www.tanmoysarkar.com/",category:"Video journalist & digital creator",thumb:"https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.tanmoysarkar.com%2F?w=1200"},
 ];
 
 const industries = ["Education & EdTech", "Legal & Professional Services", "Retail & E-commerce", "Startups & SaaS", "Healthcare", "Social Impact"];
