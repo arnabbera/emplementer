@@ -42,3 +42,14 @@
 /* Mobile hamburger navigation */
 .mobile-menu-toggle{display:none;width:44px;height:44px;padding:10px;border:1px solid rgba(55,186,252,.4);border-radius:6px;background:transparent;cursor:pointer;flex-direction:column;justify-content:center;gap:5px}.mobile-menu-toggle span{display:block;width:100%;height:2px;border-radius:2px;background:#fff;transition:transform .2s,opacity .2s}.mobile-menu-toggle.is-open span:nth-child(1){transform:translateY(7px) rotate(45deg)}.mobile-menu-toggle.is-open span:nth-child(2){opacity:0}.mobile-menu-toggle.is-open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 @media(max-width:760px){.nav{position:relative}.mobile-menu-toggle{display:flex}.nav-links{display:none;position:absolute;top:67px;left:-14px;right:-14px;padding:14px 20px 22px;flex-direction:column;align-items:stretch;gap:0;background:rgba(2,13,29,.98);border-top:1px solid var(--line);border-bottom:1px solid var(--line);box-shadow:0 18px 35px rgba(0,0,0,.35)}.nav-links.nav-links-open{display:flex}.nav-links.nav-links-open>a,.nav-links.nav-links-open .services-trigger,.nav-links.nav-links-open .process-trigger{display:flex!important;align-items:center;justify-content:space-between;width:100%;padding:13px 0;font-size:14px}.nav-links.nav-links-open .nav-cta{justify-content:center;margin-top:8px;padding:11px 16px}.nav-links.nav-links-open .services-menu,.nav-links.nav-links-open .process-menu{width:100%;padding:0}.services-dropdown,.process-dropdown{top:67px}.brand img{max-width:calc(100vw - 92px)}}
+/* White navigation theme */
+.nav-wrap{background:rgba(255,255,255,.97);border-bottom:1px solid #d9e4ee;box-shadow:0 3px 16px rgba(2,20,39,.08)}
+.nav-links a{color:#18324b}
+.nav-links a:hover{color:#078ccb}
+.nav-cta{background:#087fbe;border-color:#087fbe;color:#fff!important}
+.services-dropdown,.process-dropdown{background:#fff;border-color:#cbdce9;box-shadow:0 22px 55px rgba(5,28,49,.18)}
+.services-dropdown a,.process-dropdown a{color:#18324b!important}
+.services-dropdown a:hover,.process-dropdown a:hover{background:#eaf7ff;color:#057db8!important}
+.mobile-menu-toggle{border-color:#72bce2}
+.mobile-menu-toggle span{background:#10314d}
+@media(max-width:760px){.nav-links{background:rgba(255,255,255,.99);border-color:#d9e4ee;box-shadow:0 18px 35px rgba(5,28,49,.16)}.nav-links.nav-links-open>a,.nav-links.nav-links-open .services-trigger,.nav-links.nav-links-open .process-trigger{color:#18324b}.nav-links.nav-links-open .nav-cta{color:#fff!important}}
