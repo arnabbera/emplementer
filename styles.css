@@ -53,3 +53,11 @@
 .mobile-menu-toggle{border-color:#72bce2}
 .mobile-menu-toggle span{background:#10314d}
 @media(max-width:760px){.nav-links{background:rgba(255,255,255,.99);border-color:#d9e4ee;box-shadow:0 18px 35px rgba(5,28,49,.16)}.nav-links.nav-links-open>a,.nav-links.nav-links-open .services-trigger,.nav-links.nav-links-open .process-trigger{color:#18324b}.nav-links.nav-links-open .nav-cta{color:#fff!important}}
+
+/* Scrolling website offer */
+.hero-offer-ticker{width:100%;max-width:720px;margin:0 0 22px;overflow:hidden;border:1px solid rgba(54,186,248,.36);border-radius:999px;background:linear-gradient(90deg,rgba(13,123,184,.22),rgba(4,31,60,.72));box-shadow:0 10px 30px rgba(0,0,0,.2)}
+.hero-offer-track{display:flex;align-items:center;width:max-content;padding:9px 0;color:#fff;font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;animation:heroOfferScroll 13s linear infinite}
+.hero-offer-track span{padding:0 24px}.hero-offer-track i{color:#ffb11b;font-style:normal;font-size:18px}
+@keyframes heroOfferScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(max-width:600px){.hero-offer-ticker{margin-bottom:18px}.hero-offer-track{font-size:11px;animation-duration:11s}.hero-offer-track span{padding:0 18px}}
+@media(prefers-reduced-motion:reduce){.hero-offer-track{animation:none;transform:none}.hero-offer-track span[aria-hidden="true"],.hero-offer-track i{display:none}}
