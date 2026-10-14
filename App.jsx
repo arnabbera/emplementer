@@ -1,43 +1,295 @@
 import { useState } from "react";
+import {
+  ArrowRight, BadgeCheck, Bot, Check, ChevronDown, Cloud, Code2, ExternalLink,
+  Globe2, Menu, MessageCircle, MonitorSmartphone, Puzzle, Rocket, ShieldCheck,
+  ShoppingCart, Smartphone, Sparkles, Wrench, X
+} from "lucide-react";
+
+const whatsappNumber = "919830015487";
 
 const services = [
-  {id:"web",icon:"🌐",title:"Web & Web App Development",desc:"Fast, accessible websites and business applications designed to convert visitors and simplify operations.",detail:"We create responsive corporate websites, customer portals, dashboards and full-scale web applications that are fast, secure and easy to manage.",deliverables:["Responsive UX and interface design","Frontend and backend development","CMS, analytics and SEO setup","Testing, deployment and support"]},
-  {id:"mobile",icon:"📱",title:"Mobile App Development",desc:"Intuitive Android, iOS and cross-platform apps built around your customers and business goals.",detail:"We design and build reliable mobile experiences for Android and iOS, from customer-facing apps to workforce and field-service solutions.",deliverables:["Product discovery and app strategy","Android, iOS or cross-platform development","API and payment integration","Store launch and ongoing upgrades"]},
-  {id:"custom",icon:"⚙️",title:"Custom Software Solutions",desc:"Purpose-built software that replaces manual work, connects teams and grows with your organisation.",detail:"We translate your unique workflows into secure software that improves visibility, accuracy and operational control.",deliverables:["Business process analysis","Custom architecture and development","Role-based admin and reporting","Data migration and integration"]},
-  {id:"ai",icon:"🤖",title:"AI, Automation & Smart Solutions",desc:"Practical AI and workflow automation that reduce repetitive tasks and turn data into action.",detail:"We introduce useful AI and automation where it creates measurable value—without adding unnecessary complexity.",deliverables:["AI-assisted workflows and chatbots","Document and data automation","Process orchestration","Monitoring and human review controls"]},
-  {id:"cloud",icon:"☁️",title:"Cloud & Digital Solutions",desc:"Secure, resilient cloud architecture, migration and modernisation for dependable digital services.",detail:"We help businesses deploy and modernise applications on scalable cloud foundations with security and reliability built in.",deliverables:["Cloud architecture and migration","Deployment pipelines and environments","Performance and security improvements","Backup, monitoring and recovery"]},
-  {id:"api",icon:"🔗",title:"API & System Integration",desc:"Reliable integrations that connect payments, platforms, data and third-party services into one workflow.",detail:"We connect disconnected systems so information moves securely and teams can operate from a consistent source of truth.",deliverables:["REST API design and development","Payment and third-party integrations","Legacy system connectivity","Data synchronisation and monitoring"]},
-  {id:"commerce",icon:"🛒",title:"E-commerce & Business Portals",desc:"Secure storefronts and portals with payments, inventory, customer journeys and admin control.",detail:"We build commerce and self-service platforms that simplify buying, payments, fulfilment and customer management.",deliverables:["Product catalogue and checkout","Payment gateway integration","Inventory and order workflows","Customer and admin portals"]},
-  {id:"product",icon:"🧩",title:"Product Development & Implementation",desc:"From discovery and prototype to launch, we turn product ideas into production-ready solutions.",detail:"We act as an end-to-end product partner, shaping an idea, validating priorities and implementing a launch-ready digital product.",deliverables:["Discovery and product roadmap","Prototype and MVP development","Production implementation","Launch planning and iteration"]},
-  {id:"support",icon:"🛟",title:"Software Support & Maintenance",desc:"Proactive monitoring, upgrades, performance improvements and responsive technical support.",detail:"We keep your software stable, secure and useful through structured maintenance, rapid issue resolution and continuous improvement.",deliverables:["Application monitoring and fixes","Security and dependency updates","Performance optimisation","Enhancements and technical support"]},
-];
-const clients = [
-  {name:"NextGenRoboticX",url:"https://www.nextgenroboticx.com/",category:"Robotics education platform",thumb:"https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.nextgenroboticx.com%2F?w=1200"},
-  {name:"NagarikSuraksha",url:"https://www.nagariksuraksha.com/",category:"Legal education platform",thumb:"https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.nagariksuraksha.com%2F?w=1200"},
-  {name:"ConsultKaro",url:"https://www.consultkaro.org/",category:"Property consulting platform",thumb:"https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.consultkaro.org%2F?w=1200"},
-  {name:"Tanmoy Sarkar",url:"https://www.tanmoysarkar.com/",category:"Video journalist & digital creator",thumb:"https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.tanmoysarkar.com%2F?w=1200"},
+  { icon: MonitorSmartphone, title: "Business Websites", summary: "Fast, responsive websites that explain your offer clearly and make it easy for customers to contact you.", details: ["Landing pages and corporate websites", "Mobile-first responsive design", "WhatsApp and enquiry integration", "Basic technical SEO setup"] },
+  { icon: Code2, title: "Web Applications", summary: "Customer portals, dashboards and workflow applications shaped around how your organisation works.", details: ["Frontend and backend development", "Secure user accounts and roles", "Admin panels and reporting", "Deployment and handover"] },
+  { icon: Smartphone, title: "Mobile Applications", summary: "Practical Android, iOS and cross-platform applications for customers, teams and field operations.", details: ["Product discovery and UI planning", "Cross-platform development", "API and payment integration", "Store-launch support"] },
+  { icon: Puzzle, title: "Custom Software", summary: "Purpose-built software for processes that spreadsheets and off-the-shelf tools can no longer handle.", details: ["Workflow analysis", "Custom architecture", "Automation and reporting", "Integration with existing systems"] },
+  { icon: ShoppingCart, title: "E-commerce & Portals", summary: "Online stores and self-service portals with product, payment, order and customer workflows.", details: ["Catalogue and checkout", "Payment gateway integration", "Order and customer management", "Admin controls"] },
+  { icon: Bot, title: "AI & Automation", summary: "Focused automation that reduces repetitive work and helps teams act on information faster.", details: ["AI-assisted workflows", "Document automation", "Chat and support tools", "Human review controls"] },
+  { icon: Cloud, title: "Cloud & Integration", summary: "Cloud deployment and reliable connections between platforms, APIs, payments and business data.", details: ["Cloud deployment", "REST API development", "Third-party integrations", "Monitoring and recovery"] },
+  { icon: Wrench, title: "Support & Maintenance", summary: "Structured technical support, upgrades and improvements after your website or product launches.", details: ["Issue resolution", "Security and dependency updates", "Performance improvement", "Ongoing enhancements"] },
 ];
 
-const industries = ["Education & EdTech", "Legal & Professional Services", "Retail & E-commerce", "Startups & SaaS", "Healthcare", "Social Impact"];
-const processes = [
-  {id:"discover",icon:"🔎",title:"Discover",desc:"We understand your users, goals, challenges and definition of success.",detail:"We begin by understanding the business problem, target users, current processes and the measurable outcome your solution needs to achieve.",deliverables:["Stakeholder discovery sessions","User and workflow analysis","Goals and success measures","Initial opportunity assessment"]},
-  {id:"define",icon:"🗺️",title:"Define",desc:"We shape the scope, architecture, user journey and delivery roadmap.",detail:"We convert discovery findings into a practical product definition, prioritised scope and transparent implementation plan.",deliverables:["Feature priorities and scope","User journeys and requirements","Solution architecture","Timeline and delivery roadmap"]},
-  {id:"design-build",icon:"🛠️",title:"Design & Build",desc:"We create, test and refine the solution through visible milestones.",detail:"Our designers and engineers work together in focused iterations, giving you regular visibility and opportunities to review progress.",deliverables:["Interface and experience design","Frontend and backend development","Integrations and data workflows","Quality assurance and security testing"]},
-  {id:"launch-grow",icon:"🚀",title:"Launch & Grow",desc:"We deploy, monitor, support and evolve your product with confidence.",detail:"We prepare the product for a dependable launch, support adoption and continue improving it using real operational feedback.",deliverables:["Production deployment","Launch and adoption support","Monitoring and maintenance","Enhancements and growth roadmap"]},
+const projects = [
+  {
+    name: "NextGenRoboticX",
+    category: "Robotics education platform",
+    url: "https://www.nextgenroboticx.com/",
+    image: "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.nextgenroboticx.com%2F?w=1200",
+    description: "A responsive learning platform with courses, projects, student access and structured educational content.",
+    tags: ["Education", "Courses", "Student portal"]
+  },
+  {
+    name: "Sanhita360",
+    category: "Legal learning platform",
+    url: "https://www.sanhita360.com/",
+    image: "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.sanhita360.com%2F?w=1200",
+    description: "A legal-education ecosystem combining course discovery, student learning, examinations and legal resources.",
+    tags: ["Legal education", "Learning portal", "Content"]
+  },
+  {
+    name: "ConsultKaro",
+    category: "Property registration consultancy",
+    url: "https://www.consultkaro.org/",
+    image: "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.consultkaro.org%2F?w=1200",
+    description: "A service-led website designed to explain property-registration support and convert visitors into consultations.",
+    tags: ["Consulting", "Local SEO", "Lead generation"]
+  },
+  {
+    name: "Tanmoy Sarkar",
+    category: "Video journalist & digital creator",
+    url: "https://www.tanmoysarkar.com/",
+    image: "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.tanmoysarkar.com%2F?w=1200",
+    description: "A visual portfolio that presents creative work, professional experience and collaboration opportunities.",
+    tags: ["Portfolio", "Media", "Personal brand"]
+  }
 ];
 
-export default function Home() { const [selectedService,setSelectedService]=useState(null); const [selectedProcess,setSelectedProcess]=useState(null); const [mobileNavOpen,setMobileNavOpen]=useState(false); return <main>
-  <header className="nav-wrap"><nav className="nav container" aria-label="Primary navigation"><a href="#top" className="brand" aria-label="Emplementer home" onClick={()=>setMobileNavOpen(false)}><img src="/logo-emplementer.png" alt="Emplementer software development and solution provider" /></a><button className={`mobile-menu-toggle ${mobileNavOpen?"is-open":""}`} type="button" aria-label={mobileNavOpen?"Close navigation menu":"Open navigation menu"} aria-expanded={mobileNavOpen} aria-controls="primary-menu" onClick={()=>setMobileNavOpen(open=>!open)}><span></span><span></span><span></span></button><div id="primary-menu" className={`nav-links ${mobileNavOpen?"nav-links-open":""}`}><div className="services-menu"><a href="#services" className="services-trigger">Services <span>⌄</span></a><div className="services-dropdown" aria-label="Services menu">{services.map(service=><a key={service.id} href={`#service-${service.id}`} onClick={()=>setMobileNavOpen(false)}><span>{service.icon}</span>{service.title}</a>)}</div></div><a href="#about" onClick={()=>setMobileNavOpen(false)}>About</a><a href="#clients" onClick={()=>setMobileNavOpen(false)}>Our Clients</a><div className="process-menu"><a href="#process" className="process-trigger">Process <span>⌄</span></a><div className="process-dropdown" aria-label="Process menu">{processes.map(process=><a key={process.id} href={`#process-${process.id}`} onClick={()=>setMobileNavOpen(false)}><span>{process.icon}</span><b>{process.title}</b><small>{process.desc}</small></a>)}</div></div><a href="#contact" className="nav-cta" onClick={()=>setMobileNavOpen(false)}>Start a project</a></div></nav></header>
-  <section id="top" className="split-hero" aria-labelledby="hero-title"><div className="container split-hero-inner"><div className="split-hero-copy"><div className="hero-offer-ticker" role="status" aria-label="Build a responsive website starting at just 999 rupees"><div className="hero-offer-track"><span>Build a responsive website starting at just ₹999</span><i aria-hidden="true">•</i><span aria-hidden="true">Build a responsive website starting at just ₹999</span><i aria-hidden="true">•</i></div></div><p className="eyebrow">Software development & solution provider</p><h1 id="hero-title">We implement <span>ideas to reality.</span></h1><p>Emplementer turns your vision into secure, scalable and user-friendly digital products—from strategy and design to development, launch and support.</p><div className="hero-actions"><a className="button primary" href="#contact">Discuss your idea <span>↗</span></a><a className="button secondary" href="#services">Explore services</a></div><div className="trust-row"><span>Strategy</span><i>•</i><span>Design</span><i>•</i><span>Development</span><i>•</i><span>Implementation</span></div></div><div className="split-hero-visual" role="img" aria-label="Idea to reality digital product development"><img src="/right-plane-banner-v6.jpg" width="1145" height="804" decoding="async" fetchPriority="high" alt="" /></div></div></section>
-  <section className="intro" id="about"><div className="container split"><div><p className="section-label">Your end-to-end technology partner</p><h2>More than code.<br/>A solution that works.</h2></div><div className="intro-copy"><p>Great software begins with a clear understanding of the real problem. We collaborate with founders, businesses and organisations to shape the right solution—then design, build and implement it with care.</p><p>Whether you need a first digital product or want to modernise an established system, we bring together product thinking, engineering and dependable delivery.</p></div></div><div className="container proof-grid"><article><strong>End-to-end</strong><span>From idea and planning to launch and support</span></article><article><strong>Built to scale</strong><span>Reliable foundations for long-term growth</span></article><article><strong>User-first</strong><span>Simple experiences people enjoy using</span></article><article><strong>Transparent</strong><span>Clear communication at every milestone</span></article></div></section>
-  <section id="services" className="services-section"><div className="container section-head"><div><p className="section-label">What we build</p><h2>Digital solutions with<br/><em>real impact.</em></h2></div><p>Focused technology services for every stage of your digital journey.</p></div><div className="container services-grid">{services.map(service => <article id={`service-${service.id}`} className="service-card" key={service.id}><div className="service-icon" aria-hidden="true">{service.icon}</div><h3>{service.title}</h3><p>{service.desc}</p><button type="button" onClick={()=>setSelectedService(service)} aria-label={`Know more about ${service.title}`}>Know More <span>↗</span></button></article>)}</div></section>
-  <section id="clients" className="clients-section"><div className="container section-head"><div><p className="section-label">Our clients</p><h2>Digital experiences<br/><em>we have created.</em></h2></div><p>Explore selected websites and platforms designed and developed by Emplementer.</p></div><div className="container clients-grid">{clients.map(client=><a className="client-card" key={client.name} href={client.url} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${client.name} website`}><div className="client-preview"><img src={client.thumb} alt={`${client.name} website landing page`} loading="lazy" width="1200" height="675"/></div><div className="client-meta"><span><strong>{client.name}</strong><small>{client.category}</small></span><i aria-hidden="true">↗</i></div></a>)}</div></section>
-  <section className="industries"><div className="container"><p className="section-label">Industry experience</p><h2>Technology shaped around<br/>your world.</h2><div className="industry-list">{industries.map((x,i)=><div key={x}><span>0{i+1}</span>{x}</div>)}</div></div></section>
-  <section id="process" className="process"><div className="container section-head"><div><p className="section-label">How we work</p><h2>A clear path from<br/><em>concept to launch.</em></h2></div><p>Collaborative, practical and focused on measurable outcomes.</p></div><div className="container process-grid">{processes.map(process=><article id={`process-${process.id}`} key={process.id}><div className="process-icon" aria-hidden="true">{process.icon}</div><h3>{process.title}</h3><p>{process.desc}</p><button type="button" onClick={()=>setSelectedProcess(process)}>Know More <span>↗</span></button></article>)}</div></section>
-  <section className="why"><div className="container split"><div><p className="section-label">Why Emplementer</p><h2>We treat your idea<br/>like a product—not<br/>just a project.</h2></div><div className="why-list"><div><b>01</b><span><strong>Business-first thinking</strong><small>Technology decisions grounded in your real goals.</small></span></div><div><b>02</b><span><strong>One accountable partner</strong><small>A connected team from discovery through maintenance.</small></span></div><div><b>03</b><span><strong>Quality without complexity</strong><small>Clean, secure solutions that remain easy to operate.</small></span></div><div><b>04</b><span><strong>Partnership that continues</strong><small>Support and improvement long after launch day.</small></span></div></div></div></section>
-  <section className="faq"><div className="container"><p className="section-label">Frequently asked questions</p><h2>Before we get started.</h2><div className="faq-grid"><details><summary>What types of projects do you take on?</summary><p>We build websites, web and mobile applications, custom software, portals, e-commerce platforms, AI automation and system integrations.</p></details><details><summary>Can you build from an early-stage idea?</summary><p>Yes. We help clarify requirements, prioritise features and create a realistic roadmap before design and development begin.</p></details><details><summary>Do you support products after launch?</summary><p>Yes. We offer maintenance, monitoring, performance improvement, feature development and ongoing technical support.</p></details><details><summary>How do I receive a project estimate?</summary><p>Share your idea, current challenge and desired outcome. After a discovery conversation, we provide a proposed scope, timeline and cost estimate.</p></details></div></div></section>
-  <section id="contact" className="contact"><div className="container contact-inner"><p className="section-label">Have an idea?</p><h2>Let’s turn it into<br/><span>something real.</span></h2><p>Tell us what you want to build. We’ll help you find the clearest path from idea to implementation.</p><a className="button primary" href="https://wa.me/919830015487?text=Hello%20Emplementer%2C%20I%20would%20like%20to%20discuss%20a%20software%20project." target="_blank" rel="noopener noreferrer">Chat on WhatsApp <span>↗</span></a></div></section>
-  {selectedService&&<div className="service-modal-backdrop" role="presentation" onClick={()=>setSelectedService(null)}><section className="service-modal" role="dialog" aria-modal="true" aria-labelledby="service-modal-title" onClick={e=>e.stopPropagation()}><button className="modal-close" type="button" onClick={()=>setSelectedService(null)} aria-label="Close service details">×</button><div className="modal-icon" aria-hidden="true">{selectedService.icon}</div><p className="section-label">Our service</p><h2 id="service-modal-title">{selectedService.title}</h2><p>{selectedService.detail}</p><h3>What we can deliver</h3><ul>{selectedService.deliverables.map(item=><li key={item}>{item}</li>)}</ul><a className="button primary" href={`https://wa.me/919830015487?text=${encodeURIComponent(`Hello Emplementer, I would like to discuss ${selectedService.title}.`)}`} target="_blank" rel="noopener noreferrer" onClick={()=>setSelectedService(null)}>Discuss this service <span>↗</span></a></section></div>}
-  {selectedProcess&&<div className="service-modal-backdrop" role="presentation" onClick={()=>setSelectedProcess(null)}><section className="service-modal" role="dialog" aria-modal="true" aria-labelledby="process-modal-title" onClick={e=>e.stopPropagation()}><button className="modal-close" type="button" onClick={()=>setSelectedProcess(null)} aria-label="Close process details">×</button><div className="modal-icon" aria-hidden="true">{selectedProcess.icon}</div><p className="section-label">How we work</p><h2 id="process-modal-title">{selectedProcess.title}</h2><p>{selectedProcess.detail}</p><h3>What happens at this stage</h3><ul>{selectedProcess.deliverables.map(item=><li key={item}>{item}</li>)}</ul><a className="button primary" href="#contact" onClick={()=>setSelectedProcess(null)}>Start your project <span>↗</span></a></section></div>}
-  <footer><div className="container footer-top"><img src="/logo-emplementer.png" alt="Emplementer"/><p>We code. We build.<br/><span>We implement.</span></p></div><div className="container footer-bottom"><span>© {new Date().getFullYear()} Emplementer. All rights reserved.</span><div><a href="#services">Services</a><a href="#about">About</a><a href="#contact">Contact</a></div></div></footer>
-</main> }
+const process = [
+  { icon: Sparkles, title: "Understand", text: "We clarify your audience, goal, content, must-have features and definition of success." },
+  { icon: Globe2, title: "Plan", text: "You receive a clear scope, delivery approach and responsibilities before work begins." },
+  { icon: Code2, title: "Build", text: "We design, develop and review the solution with visible progress and practical feedback." },
+  { icon: Rocket, title: "Launch", text: "We test, deploy and hand over the project, then support the next improvements." }
+];
+
+const faqs = [
+  ["What is included in the ₹999 starter website?", "A responsive one-page website with up to five content sections, a WhatsApp contact button, basic on-page SEO, one revision and deployment assistance. You supply the final text, logo and images."],
+  ["Are domain and hosting included in ₹999?", "No. Domain, hosting and paid third-party services are separate. We can guide you in choosing them and keep the accounts in your control."],
+  ["Can the ₹999 website include online payments or a login?", "Those features require backend development and are quoted separately. The starter offer is designed for a simple, professional online presence."],
+  ["Do you build larger websites and applications?", "Yes. We build multi-page business websites, portals, e-commerce platforms, web applications, mobile applications and custom software after scoping the requirements."],
+  ["How do we start?", "Send your business type, required service, expected timeline and budget through the enquiry form or WhatsApp. We will respond with the next practical step."]
+];
+
+function waLink(message) {
+  return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+}
+
+export default function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [selectedService, setSelectedService] = useState(null);
+  const SelectedServiceIcon = selectedService?.Icon;
+
+  const closeMenu = () => setMenuOpen(false);
+
+  const submitEnquiry = (event) => {
+    event.preventDefault();
+    const form = new FormData(event.currentTarget);
+    const message = [
+      "Hello Emplementer, I would like to discuss a project.",
+      `Name: ${form.get("name")}`,
+      `Business: ${form.get("business")}`,
+      `Service: ${form.get("service")}`,
+      `Budget: ${form.get("budget")}`,
+      `Requirement: ${form.get("requirement")}`
+    ].join("\n");
+    window.open(waLink(message), "_blank", "noopener,noreferrer");
+  };
+
+  return (
+    <main>
+      <div className="offer-strip">
+        <div className="offer-track">
+          <span>Responsive one-page business website from ₹999</span><i>•</i>
+          <span>Mobile friendly</span><i>•</i><span>WhatsApp enabled</span><i>•</i>
+          <span>Basic SEO included</span><i>•</i>
+          <span aria-hidden="true">Responsive one-page business website from ₹999</span><i aria-hidden="true">•</i>
+          <span aria-hidden="true">Mobile friendly</span><i aria-hidden="true">•</i>
+        </div>
+      </div>
+
+      <header className="site-header">
+        <nav className="nav shell" aria-label="Primary navigation">
+          <a className="brand" href="#top" onClick={closeMenu} aria-label="Emplementer home">
+            <img src="/logo-emplementer.png" alt="Emplementer" />
+          </a>
+          <button className="menu-toggle" type="button" onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen} aria-controls="nav-menu" aria-label={menuOpen ? "Close menu" : "Open menu"}>
+            {menuOpen ? <X /> : <Menu />}
+          </button>
+          <div id="nav-menu" className={`nav-menu ${menuOpen ? "open" : ""}`}>
+            <a href="#services" onClick={closeMenu}>Services</a>
+            <a href="#work" onClick={closeMenu}>Our work</a>
+            <a href="#starter" onClick={closeMenu}>₹999 offer</a>
+            <a href="#process" onClick={closeMenu}>Process</a>
+            <a href="#contact" onClick={closeMenu}>Contact</a>
+            <a className="nav-button" href={waLink("Hello Emplementer, I would like to discuss a project.")} target="_blank" rel="noreferrer">WhatsApp us</a>
+          </div>
+        </nav>
+      </header>
+
+      <section id="top" className="hero">
+        <div className="hero-glow" />
+        <div className="shell hero-grid">
+          <div className="hero-copy">
+            <p className="kicker"><span /> Website & software development partner</p>
+            <h1>Turn your business idea into a <em>digital product that works.</em></h1>
+            <p className="hero-lead">Emplementer builds responsive websites, portals, web applications and custom digital solutions for businesses, professionals, educators and creators.</p>
+            <div className="hero-actions">
+              <a className="button primary" href="#starter">See the ₹999 starter offer <ArrowRight /></a>
+              <a className="button ghost" href="#work">View live projects</a>
+            </div>
+            <div className="hero-points">
+              <span><Check /> Clear scope</span><span><Check /> Responsive build</span><span><Check /> Direct support</span>
+            </div>
+          </div>
+          <div className="hero-visual">
+            <img src="/right-plane-banner-v6.jpg" width="1145" height="804" alt="Emplementer transforms business ideas into responsive digital products" fetchPriority="high" />
+            <div className="floating-card">
+              <strong>Start small. Grow when ready.</strong>
+              <span>A focused website now, custom features next.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="trust-band">
+        <div className="shell trust-grid">
+          <article><BadgeCheck /><div><strong>Real project portfolio</strong><span>Explore websites currently online</span></div></article>
+          <article><ShieldCheck /><div><strong>Scope before development</strong><span>Know what is included before work begins</span></div></article>
+          <article><MessageCircle /><div><strong>Direct communication</strong><span>Discuss the project through WhatsApp</span></div></article>
+        </div>
+      </section>
+
+      <section id="starter" className="starter section">
+        <div className="shell starter-grid">
+          <div className="section-copy">
+            <p className="eyebrow">A practical first step</p>
+            <h2>Launch a responsive business website for <span>₹999</span></h2>
+            <p>This starter package is for a professional one-page presence—not a custom application. Its scope is intentionally clear so you know exactly what you receive.</p>
+            <a className="button primary" href={waLink("Hello Emplementer, I am interested in the ₹999 one-page responsive website offer.")} target="_blank" rel="noreferrer">Ask about the ₹999 offer <ArrowRight /></a>
+          </div>
+          <div className="price-card">
+            <div className="price-head"><span>Starter website</span><strong><small>₹</small>999</strong><em>one-time development fee</em></div>
+            <ul>
+              <li><Check /> One responsive webpage</li>
+              <li><Check /> Up to five content sections</li>
+              <li><Check /> WhatsApp contact button</li>
+              <li><Check /> Basic on-page SEO</li>
+              <li><Check /> One revision</li>
+              <li><Check /> Deployment assistance</li>
+            </ul>
+            <div className="scope-note"><strong>Please note:</strong> You provide final text, logo and images. Domain, hosting, custom backend, payment gateway, login and e-commerce features are quoted separately.</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="services" className="services section dark">
+        <div className="shell">
+          <div className="section-heading">
+            <div><p className="eyebrow">What we build</p><h2>Choose the solution your business actually needs.</h2></div>
+            <p>Start with a focused website or work with us on a larger product. Every engagement begins with a defined problem and scope.</p>
+          </div>
+          <div className="service-grid">
+            {services.map(({ icon: Icon, title, summary, details }) => (
+              <article className="service-card" key={title}>
+                <div className="service-icon"><Icon /></div>
+                <h3>{title}</h3><p>{summary}</p>
+                <button type="button" onClick={() => setSelectedService({ Icon, title, summary, details })}>Know more <ArrowRight /></button>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="work" className="work section">
+        <div className="shell">
+          <div className="section-heading">
+            <div><p className="eyebrow">Selected work</p><h2>Live projects—not placeholder concepts.</h2></div>
+            <p>These platforms demonstrate our work across education, legal learning, consulting and creator portfolios.</p>
+          </div>
+          <div className="project-grid">
+            {projects.map(project => (
+              <article className="project-card" key={project.name}>
+                <a className="project-image" href={project.url} target="_blank" rel="noreferrer" aria-label={`Visit ${project.name}`}>
+                  <img src={project.image} alt={`${project.name} website homepage`} loading="lazy" width="1200" height="675" />
+                  <span>Visit live website <ExternalLink /></span>
+                </a>
+                <div className="project-body">
+                  <p>{project.category}</p><h3>{project.name}</h3><div className="tag-row">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div>
+                  <p className="project-description">{project.description}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="process" className="process section soft">
+        <div className="shell">
+          <div className="section-heading compact"><div><p className="eyebrow">How we work</p><h2>A visible path from requirement to launch.</h2></div></div>
+          <div className="process-grid">
+            {process.map(({ icon: Icon, title, text }, index) => (
+              <article key={title}><span>0{index + 1}</span><Icon /><h3>{title}</h3><p>{text}</p></article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="fit section">
+        <div className="shell fit-grid">
+          <div><p className="eyebrow">A good fit</p><h2>Built for people who need technology to solve a real business problem.</h2></div>
+          <div className="fit-list">
+            {["Small businesses establishing an online presence","Professionals and consultants generating enquiries","Educators creating learning platforms","Creators presenting work and partnerships","Teams replacing manual workflows","Founders validating a digital-product idea"].map(item => <div key={item}><Check />{item}</div>)}
+          </div>
+        </div>
+      </section>
+
+      <section className="faq section soft">
+        <div className="shell faq-grid">
+          <div><p className="eyebrow">Frequently asked questions</p><h2>Clear answers before you begin.</h2></div>
+          <div>{faqs.map(([question, answer]) => <details key={question}><summary>{question}<ChevronDown /></summary><p>{answer}</p></details>)}</div>
+        </div>
+      </section>
+
+      <section id="contact" className="contact section">
+        <div className="shell contact-grid">
+          <div className="contact-copy">
+            <p className="eyebrow">Start a conversation</p>
+            <h2>Tell us what you want to build.</h2>
+            <p>Share the essential details. Submitting this form prepares a structured WhatsApp message so we can understand your requirement faster.</p>
+            <a className="direct-link" href={waLink("Hello Emplementer, I would like to discuss a project.")} target="_blank" rel="noreferrer"><MessageCircle /> Chat directly on WhatsApp</a>
+          </div>
+          <form className="enquiry-form" onSubmit={submitEnquiry}>
+            <label>Your name<input name="name" required placeholder="Name" /></label>
+            <label>Business or organisation<input name="business" required placeholder="Business name or type" /></label>
+            <div className="form-row">
+              <label>Required service<select name="service" required defaultValue=""><option value="" disabled>Select a service</option>{services.map(service => <option key={service.title}>{service.title}</option>)}<option>Not sure yet</option></select></label>
+              <label>Approximate budget<select name="budget" required defaultValue=""><option value="" disabled>Select a range</option><option>₹999 starter website</option><option>₹1,000–₹10,000</option><option>₹10,000–₹50,000</option><option>₹50,000+</option><option>Need guidance</option></select></label>
+            </div>
+            <label>What do you need?<textarea name="requirement" required rows="4" placeholder="Briefly describe your goal, important features and expected timeline." /></label>
+            <button className="button primary form-button" type="submit">Continue on WhatsApp <ArrowRight /></button>
+            <small>No information is stored on this website. The details are placed into a WhatsApp message for you to review before sending.</small>
+          </form>
+        </div>
+      </section>
+
+      <footer>
+        <div className="shell footer-main">
+          <div><img src="/logo-emplementer.png" alt="Emplementer" /><p>Responsive websites and digital solutions for businesses ready to move forward.</p></div>
+          <div><strong>Explore</strong><a href="#services">Services</a><a href="#work">Our work</a><a href="#starter">₹999 offer</a></div>
+          <div><strong>Contact</strong><a href="#contact">Project enquiry</a><a href={waLink("Hello Emplementer, I would like to discuss a project.")} target="_blank" rel="noreferrer">WhatsApp</a><a href="https://www.emplementer.com/">emplementer.com</a></div>
+        </div>
+        <div className="shell footer-bottom">© {new Date().getFullYear()} Emplementer. All rights reserved.</div>
+      </footer>
+
+      {selectedService && (
+        <div className="modal-backdrop" onClick={() => setSelectedService(null)}>
+          <section className="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" onClick={event => event.stopPropagation()}>
+            <button className="modal-close" onClick={() => setSelectedService(null)} aria-label="Close details"><X /></button>
+            <div className="service-icon large">{SelectedServiceIcon && <SelectedServiceIcon />}</div>
+            <p className="eyebrow">Emplementer service</p><h2 id="modal-title">{selectedService.title}</h2><p>{selectedService.summary}</p>
+            <ul>{selectedService.details.map(item => <li key={item}><Check />{item}</li>)}</ul>
+            <a className="button primary" href={waLink(`Hello Emplementer, I would like to discuss ${selectedService.title}.`)} target="_blank" rel="noreferrer">Discuss this service <ArrowRight /></a>
+          </section>
+        </div>
+      )}
+    </main>
+  );
+}
