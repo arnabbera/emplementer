@@ -8,14 +8,14 @@ import {
 const whatsappNumber = "919830015487";
 
 const services = [
-  { icon: MonitorSmartphone, title: "Business Websites", summary: "Fast, responsive websites that explain your offer clearly and make it easy for customers to contact you.", details: ["Landing pages and corporate websites", "Mobile-first responsive design", "WhatsApp and enquiry integration", "Basic technical SEO setup"] },
-  { icon: Code2, title: "Web Applications", summary: "Customer portals, dashboards and workflow applications shaped around how your organisation works.", details: ["Frontend and backend development", "Secure user accounts and roles", "Admin panels and reporting", "Deployment and handover"] },
-  { icon: Smartphone, title: "Mobile Applications", summary: "Practical Android, iOS and cross-platform applications for customers, teams and field operations.", details: ["Product discovery and UI planning", "Cross-platform development", "API and payment integration", "Store-launch support"] },
-  { icon: Puzzle, title: "Custom Software", summary: "Purpose-built software for processes that spreadsheets and off-the-shelf tools can no longer handle.", details: ["Workflow analysis", "Custom architecture", "Automation and reporting", "Integration with existing systems"] },
-  { icon: ShoppingCart, title: "E-commerce & Portals", summary: "Online stores and self-service portals with product, payment, order and customer workflows.", details: ["Catalogue and checkout", "Payment gateway integration", "Order and customer management", "Admin controls"] },
-  { icon: Bot, title: "AI & Automation", summary: "Focused automation that reduces repetitive work and helps teams act on information faster.", details: ["AI-assisted workflows", "Document automation", "Chat and support tools", "Human review controls"] },
-  { icon: Cloud, title: "Cloud & Integration", summary: "Cloud deployment and reliable connections between platforms, APIs, payments and business data.", details: ["Cloud deployment", "REST API development", "Third-party integrations", "Monitoring and recovery"] },
-  { icon: Wrench, title: "Support & Maintenance", summary: "Structured technical support, upgrades and improvements after your website or product launches.", details: ["Issue resolution", "Security and dependency updates", "Performance improvement", "Ongoing enhancements"] },
+  { icon: MonitorSmartphone, title: "Small Business Websites", summary: "Affordable, professional websites that help local businesses become visible and receive enquiries.", details: ["Mobile-first responsive layout", "Services and business profile", "WhatsApp and call buttons", "Google-ready page structure"] },
+  { icon: Globe2, title: "Professional Websites", summary: "Credible websites for advocates, doctors, consultants, architects, tutors and other professionals.", details: ["Professional profile and credentials", "Service pages", "Appointment or enquiry flow", "Location and contact integration"] },
+  { icon: ShoppingCart, title: "E-commerce Websites", summary: "Online shops that present products clearly and support enquiries, orders and secure payments.", details: ["Product catalogue", "Cart and checkout", "Payment integration", "Order administration"] },
+  { icon: Rocket, title: "Landing Pages", summary: "Focused campaign pages designed to promote one offer and convert visitors into leads.", details: ["Offer-led copy structure", "Strong calls-to-action", "Lead and WhatsApp integration", "Fast-loading responsive build"] },
+  { icon: Code2, title: "Education & Course Websites", summary: "Learning websites for academies, teachers and trainers—with room to grow into a student portal.", details: ["Course presentation", "Student signup", "Learning content", "Tests and certificates"] },
+  { icon: Puzzle, title: "Business Portals", summary: "Secure portals and dashboards when your website needs login, data and workflow features.", details: ["User accounts and roles", "Admin dashboard", "Forms and reporting", "Custom workflow development"] },
+  { icon: Cloud, title: "Website SEO & Deployment", summary: "Technical setup that helps search engines understand your website and keeps it accessible online.", details: ["On-page SEO", "Search metadata and schema", "Domain and hosting guidance", "Sitemap and analytics setup"] },
+  { icon: Wrench, title: "Website Maintenance", summary: "Ongoing updates, fixes and improvements after your website goes live.", details: ["Content updates", "Issue resolution", "Security updates", "Performance improvements"] },
 ];
 
 const projects = [
@@ -119,7 +119,7 @@ export default function App() {
             <a href="#starter" onClick={closeMenu}>₹999 offer</a>
             <a href="#process" onClick={closeMenu}>Process</a>
             <a href="#contact" onClick={closeMenu}>Contact</a>
-            <a className="nav-button" href={waLink("Hello Emplementer, I would like to discuss a project.")} target="_blank" rel="noreferrer">WhatsApp us</a>
+            <a className="nav-button" href={waLink("Hello Emplementer, I need a website for my business. Please share a quotation.")} target="_blank" rel="noreferrer">Get website quote</a>
           </div>
         </nav>
       </header>
@@ -128,22 +128,22 @@ export default function App() {
         <div className="hero-glow" />
         <div className="shell hero-grid">
           <div className="hero-copy">
-            <p className="kicker"><span /> Website & software development partner</p>
-            <h1>Turn your business idea into a <em>digital product that works.</em></h1>
-            <p className="hero-lead">Emplementer builds responsive websites, portals, web applications and custom digital solutions for businesses, professionals, educators and creators.</p>
+            <p className="kicker"><span /> Affordable website development company</p>
+            <h1>We build professional websites <em>for your business.</em></h1>
+            <p className="hero-lead">Get a fast, mobile-friendly and Google-ready website at an affordable cost. Emplementer helps small businesses, professionals, educators and creators build a strong online presence.</p>
             <div className="hero-actions">
-              <a className="button primary" href="#starter">See the ₹999 starter offer <ArrowRight /></a>
-              <a className="button ghost" href="#work">View live projects</a>
+              <a className="button primary" href={waLink("Hello Emplementer, I need an affordable website for my business. Please share a quotation.")} target="_blank" rel="noreferrer">Get a free quotation <ArrowRight /></a>
+              <a className="button ghost" href="#starter">Website plans from ₹999</a>
             </div>
             <div className="hero-points">
-              <span><Check /> Clear scope</span><span><Check /> Responsive build</span><span><Check /> Direct support</span>
+              <span><Check /> Mobile responsive</span><span><Check /> Basic SEO</span><span><Check /> WhatsApp enabled</span>
             </div>
           </div>
           <div className="hero-visual">
             <img src="/right-plane-banner-v6.jpg" width="1145" height="804" alt="Emplementer transforms business ideas into responsive digital products" fetchPriority="high" />
             <div className="floating-card">
-              <strong>Start small. Grow when ready.</strong>
-              <span>A focused website now, custom features next.</span>
+              <strong>Your business deserves a website.</strong>
+              <span>Start affordably. Upgrade as your business grows.</span>
             </div>
           </div>
         </div>
@@ -151,18 +151,18 @@ export default function App() {
 
       <section className="trust-band">
         <div className="shell trust-grid">
-          <article><BadgeCheck /><div><strong>Real project portfolio</strong><span>Explore websites currently online</span></div></article>
-          <article><ShieldCheck /><div><strong>Scope before development</strong><span>Know what is included before work begins</span></div></article>
-          <article><MessageCircle /><div><strong>Direct communication</strong><span>Discuss the project through WhatsApp</span></div></article>
+          <article><BadgeCheck /><div><strong>Websites from ₹999</strong><span>Affordable entry plan for small businesses</span></div></article>
+          <article><ShieldCheck /><div><strong>Mobile & Google ready</strong><span>Responsive design with essential SEO</span></div></article>
+          <article><MessageCircle /><div><strong>Direct WhatsApp support</strong><span>Discuss your website with the developer</span></div></article>
         </div>
       </section>
 
       <section id="starter" className="starter section">
         <div className="shell starter-grid">
           <div className="section-copy">
-            <p className="eyebrow">A practical first step</p>
-            <h2>Launch a responsive business website for <span>₹999</span></h2>
-            <p>This starter package is for a professional one-page presence—not a custom application. Its scope is intentionally clear so you know exactly what you receive.</p>
+            <p className="eyebrow">Affordable website package</p>
+            <h2>Put your business online starting at <span>₹999</span></h2>
+            <p>Ideal for a new business, independent professional or local service provider that needs a clean, credible website without a large initial investment.</p>
             <a className="button primary" href={waLink("Hello Emplementer, I am interested in the ₹999 one-page responsive website offer.")} target="_blank" rel="noreferrer">Ask about the ₹999 offer <ArrowRight /></a>
           </div>
           <div className="price-card">
@@ -183,8 +183,8 @@ export default function App() {
       <section id="services" className="services section dark">
         <div className="shell">
           <div className="section-heading">
-            <div><p className="eyebrow">What we build</p><h2>Choose the solution your business actually needs.</h2></div>
-            <p>Start with a focused website or work with us on a larger product. Every engagement begins with a defined problem and scope.</p>
+            <div><p className="eyebrow">Website development services</p><h2>Every kind of website your business may need.</h2></div>
+            <p>Start with an affordable business website and add advanced features as your organisation grows.</p>
           </div>
           <div className="service-grid">
             {services.map(({ icon: Icon, title, summary, details }) => (
@@ -201,8 +201,8 @@ export default function App() {
       <section id="work" className="work section">
         <div className="shell">
           <div className="section-heading">
-            <div><p className="eyebrow">Selected work</p><h2>Live projects—not placeholder concepts.</h2></div>
-            <p>These platforms demonstrate our work across education, legal learning, consulting and creator portfolios.</p>
+            <div><p className="eyebrow">Website portfolio</p><h2>Business websites we have built.</h2></div>
+            <p>Explore live Emplementer websites across education, legal learning, consulting and professional portfolios.</p>
           </div>
           <div className="project-grid">
             {projects.map(project => (
@@ -234,9 +234,9 @@ export default function App() {
 
       <section className="fit section">
         <div className="shell fit-grid">
-          <div><p className="eyebrow">A good fit</p><h2>Built for people who need technology to solve a real business problem.</h2></div>
+          <div><p className="eyebrow">Who we help</p><h2>Affordable website development for people building a business.</h2></div>
           <div className="fit-list">
-            {["Small businesses establishing an online presence","Professionals and consultants generating enquiries","Educators creating learning platforms","Creators presenting work and partnerships","Teams replacing manual workflows","Founders validating a digital-product idea"].map(item => <div key={item}><Check />{item}</div>)}
+            {["Small and local businesses","Professionals and consultants","Doctors, advocates and architects","Teachers, trainers and academies","Creators and personal brands","Startups and growing companies"].map(item => <div key={item}><Check />{item}</div>)}
           </div>
         </div>
       </section>
@@ -252,8 +252,8 @@ export default function App() {
         <div className="shell contact-grid">
           <div className="contact-copy">
             <p className="eyebrow">Start a conversation</p>
-            <h2>Tell us what you want to build.</h2>
-            <p>Share the essential details. Submitting this form prepares a structured WhatsApp message so we can understand your requirement faster.</p>
+            <h2>Tell us about the website you need.</h2>
+            <p>Share your business type, preferred website and budget. The form prepares a WhatsApp message so we can respond with the right plan.</p>
             <a className="direct-link" href={waLink("Hello Emplementer, I would like to discuss a project.")} target="_blank" rel="noreferrer"><MessageCircle /> Chat directly on WhatsApp</a>
           </div>
           <form className="enquiry-form" onSubmit={submitEnquiry}>
