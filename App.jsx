@@ -127,9 +127,13 @@ export default function App() {
       <section id="top" className="hero">
         <div className="hero-glow" />
         <div className="shell hero-grid">
+          <h1 className="hero-title-desktop">
+            <span>We build professional websites</span>
+            <em>for your business.</em>
+          </h1>
           <div className="hero-copy">
             <p className="kicker"><span /> Affordable website development company</p>
-            <h1>We build professional websites <em>for your business.</em></h1>
+            <h1 className="hero-title-mobile">We build professional websites <em>for your business.</em></h1>
             <p className="hero-lead">Get a fast, mobile-friendly and Google-ready website at an affordable cost. Emplementer helps small businesses, professionals, educators and creators build a strong online presence.</p>
             <div className="hero-actions">
               <a className="button primary" href={waLink("Hello Emplementer, I need an affordable website for my business. Please share a quotation.")} target="_blank" rel="noreferrer">Get a free quotation <ArrowRight /></a>
